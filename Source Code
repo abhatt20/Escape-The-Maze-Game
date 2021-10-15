@@ -6,9 +6,11 @@
 #Import the system module
 import sys
 
-# Import the turtle module.
+# Import the turtle module
 from turtle import *
 
+# Import the turtle package
+import turtle
 
 # This function prints a game over whenever the user enters the wrong option.
 def game_over_message():
@@ -30,6 +32,9 @@ def main():
     # Set 'maze.png' as the background image.
     bgpic('maze.png')
 
+    # Send the turtle back to its starting position
+    turtle.reset()
+    
     # Set the shape of the turtle.
     shape('turtle')
 
@@ -485,9 +490,8 @@ def main():
     # Display an affirmative message indicating that the user has beaten the game.
         print('\nCongratulations !!')
         print('You have successfully escaped the maze.',sep = ' ')
+        sys.exit(1)
         break
-
-
 
 # Call the main function to start the game.
 main()

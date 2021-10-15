@@ -1,0 +1,499 @@
+# Date: 10/18/20
+# Author: Aryan Bhatt
+# This program uses the turtle module to move the turtle
+# from the center of a maze to the exit on the right hand side.
+
+#Import the system module
+import sys
+
+# Import the turtle module.
+from turtle import *
+
+
+# This function prints a game over whenever the user enters the wrong option.
+def game_over_message():
+
+          print('\nOops ! It seems like the turtle followed the wrong path.\n')
+          print('Game Over !')
+          print('Retry ?')
+          response = input('Response: ')
+          return response
+
+
+
+# This function is responsible for starting the game.
+def main():
+    
+    # Create a canvas of the given width and height.
+    setup(900,900)
+
+    # Set 'maze.png' as the background image.
+    bgpic('maze.png')
+
+    # Set the shape of the turtle.
+    shape('turtle')
+
+    # Display the various colors available in the game for the turtle.
+    print('Options:')
+
+    # Use a list to store the colors.
+    colors = ['yellow','orange','red','purple','blue','green','brown']
+
+
+    # Use a for loop to display all the colors that the player can choose for the turtle.
+    for colr in range(len(colors)):
+        print('\n',colr + 1,'.',colors[colr],sep = '')
+
+    print('\nChoose one of the colors shown above for your turtle.')
+
+    # Accept the color from the user.
+    player_color = input('Color: ')
+
+    # Set the turtle's color.
+    color(player_color)
+
+    # Set the width of the turtle.
+    width('7')
+
+    # Set the speed of the turtle.
+    speed(10)
+
+    # Display the instructions for the game to the player.
+    print('\nYou will be provided with two options.')
+    print('Choose one of them to decide the path that you want the turtle to follow.')
+
+
+    # Use an infinite while loop to display the set of choices successively. 
+    while 1:
+
+
+        # Display the set of options to the user.
+        print('1. Move towards north     2. Move towards west',sep =' ')
+
+        # Accept the option number from the user.
+        choice = int(input('Enter option number: '))
+
+        # Use an if-else construct to either regulate the movement of the turtle or exit the game.
+        if choice == 1:
+          left(90)
+          forward(3)
+          left(90)
+          forward(14)
+          right(90)
+          forward(14)
+
+
+        else:
+           left(-180)
+           forward(20)
+
+
+        # Store the previous choice entered by the user.
+        prev_choice = choice
+        
+
+
+      # Display the second set of options to the user.
+        print('\n1. Move towards south     2. Move left',sep = ' ')
+
+      # Accept the option number from the user.
+        choice = int(input('Enter option number: '))
+
+
+      # Use an if-else construct to either control the movement of the turtle or exit the game.
+        if choice == 1:
+            
+            if(prev_choice == 1):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                setheading(270)
+                forward(140)
+
+
+        else:
+
+            if(prev_choice == 2):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+             left(90)
+             forward(48)
+             right(90)
+             
+     # Store the previous choice entered by the user.
+        prev_choice = choice
+
+
+
+    # Display the next set of options to the user.
+        print('\n1. Move forward      2. Move left',sep = ' ')
+
+    # Accept the option number from the user.
+        choice = int(input('Enter option number: '))
+
+    
+    # Use an if-else construct to either control the movement of the turtle or exit the game.    
+        if choice == 1:
+            
+            if(prev_choice == 1):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+                
+            else:
+                forward(48)
+                left(90)
+
+                
+        else:
+
+            if(prev_choice == 2):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+             setheading(180)
+             forward(40)
+
+    # Store the previous choice entered by the user.
+        prev_choice = choice
+        
+
+
+    # Display the next set of options to the user.
+        print('\n1. Move left and then down      2. Move down and then right',sep = ' ')
+
+    # Accept the option number from the user.
+        choice = int(input('Enter option here: '))
+
+
+    # Use an if-else construct to either control the movement of the turtle or exit the game.
+        if choice == 1:
+
+            if(prev_choice == 2):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                forward(90)
+                left(90)
+                forward(40)
+
+
+        else:
+
+            if(prev_choice == 1):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                right(270)
+                forward(200)
+                setheading(360)
+                forward(40)
+
+    # Store the previous choice entered by the user.
+        prev_choice = choice
+
+
+
+    # Display the next set of options to the user.
+        print('\n1. Move down      2. Move left and then down',sep = ' ')
+
+    # Accept the option number from the user.
+        choice = int(input('Enter option here: '))
+
+
+    # Use an if-else construct to either control the movement of the turtle or exit the game.
+        if choice == 1:
+
+            if(prev_choice == 1):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+                
+            else:
+                right(90)
+                forward(40)
+                
+               
+        else:
+
+            if(prev_choice == 2):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                setheading(180)
+                forward(110)
+                left(90)
+                forward(80)
+
+     # Store the previous choice entered by the user.
+        prev_choice = choice
+        
+
+
+    # Display the next set of options to the user.
+        print('\n1. Move left and then down      2. Move left and then up',sep = ' ')
+
+    # Accept the option number from the user.
+        choice = int(input('Enter option here: '))
+
+
+    # Use an if-else construct to either control the movement of the turtle or exit the game.
+        if choice == 1:
+
+            if(prev_choice == 1):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                right(90)
+                forward(80)
+                left(90)
+                forward(280)
+                
+               
+        else:
+
+            if(prev_choice == 2):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+                
+            else:
+                setheading(180)
+                forward(240)
+                right(90)
+                forward(40)
+
+    # Store the previous choice entered by the user.
+        prev_choice = choice
+        
+
+
+    # Display the next set of options to the user.
+        print('\n1. Move left and then up      2. Move left at a slower speed',sep = ' ')
+
+    # Accept the option number from the user.
+        choice = int(input('Enter option here: '))
+
+
+    # Use an if-else construct to either control the movement of the turtle or exit the game.
+        if choice == 1:
+
+            if(prev_choice == 2):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                right(90)
+                forward(40)
+                right(90)
+                forward(720)
+                
+               
+        else:
+
+            if(prev_choice == 1):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                speed(1)
+                setheading(180)
+                forward(120)
+
+    # Store the previous choice entered by the user.
+        prev_choice = choice
+
+
+    
+    # Display the next set of options to the user.
+        print('\n1. Move up at a faster speed      2. Move towards the east direction',sep = ' ')
+
+    # Accept the option number from the user.
+        choice = int(input('Enter option here: '))
+
+
+    # Use an if-else construct to either control the movement of the turtle or exit the game.
+        if choice == 1:
+
+            if(prev_choice == 1):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                speed(20)
+                right(90)
+                forward(720)
+                
+               
+        else:
+
+            if(prev_choice == 2):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                right(90)
+                forward(760)
+
+    # Store the previous choice entered by the user.
+        prev_choice = choice
+        
+
+
+    # Display the next set of options to the user.
+        print('\n1. Move towards the east direction and then go down      2. Move down',sep = ' ')
+
+    # Accept the option number from the user.
+        choice = int(input('Enter option here: '))
+
+
+    # Use an if-else construct to either control the movement of the turtle or exit the game.
+        if choice == 1:
+
+            if(prev_choice == 2):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                right(90)
+                forward(760)
+                right(90)
+                forward(380)
+                
+               
+        else:
+
+            if(prev_choice == 1):
+
+                # Prompt the user to play the game again
+                if(game_over_message() == 'Yes'):
+                  main()
+
+                else:
+                 print('\nThanks for playing the game !',sep = ' ')
+                 sys.exit(1)
+
+            else:
+                right(90)
+                forward(380)
+
+    # Store the previous choice entered by the user.
+        prev_choice = choice
+    
+
+
+    # Move the turtle to exit the maze.
+        left(90)
+        forward(30)
+        speed(0)
+
+    # Display an affirmative message indicating that the user has beaten the game.
+        print('\nCongratulations !!')
+        print('You have successfully escaped the maze.',sep = ' ')
+        break
+
+
+
+# Call the main function to start the game.
+main()
+
+# Exit from the program.
+sys.exit(1)
+
+# Exit the turtle module.
+done()

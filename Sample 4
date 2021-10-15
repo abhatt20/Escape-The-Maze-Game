@@ -1,0 +1,43 @@
+Options:
+
+1.yellow
+
+2.orange
+
+3.red
+
+4.purple
+
+5.blue
+
+6.green
+
+7.brown
+
+Choose one of the colors shown above for your turtle.
+Color: orange
+
+You will be provided with two options.
+Choose one of them to decide the path that you want the turtle to follow.
+1. Move towards north     2. Move towards west
+Enter option number: 2
+
+1. Move towards south     2. Move left
+Enter option number: 1
+
+1. Move forward      2. Move left
+Enter option number: 2
+
+1. Move left and then down      2. Move down and then right
+Enter option here: 2
+
+1. Move down      2. Move left and then down
+Enter option here: 2
+
+Oops ! It seems like the turtle followed the wrong path.
+
+Game Over !
+Retry ?
+Response: No
+
+Thanks for playing the game !
